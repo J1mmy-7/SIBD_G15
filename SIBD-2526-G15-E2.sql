@@ -26,7 +26,7 @@ CREATE TABLE album (
  )
 
 
-CREATE TABLE uilizador (
+CREATE TABLE utilizador (
     username CHAR(100) PRIMARY KEY,
     email CHAR(100) UNIQUE NOT NULL,
     palavra_passe CHAR(100) NOT NULL,
@@ -75,3 +75,12 @@ CREATE TABLE possui (
     FOREIGN KEY (username) REFERENCES utilizador,
     FOREIGN KEY (ean13) REFERENCES versao
 )
+
+CREATE TABLE interpretado (
+	mbid CHAR(36),
+	isni NUMBER(16),
+	PRIMARY KEY (mbid),
+	FOREIGN KEY (mbid) REFERENCES album,
+	FOREIGN KEY (isni) REFERENCES artista
+)
+
